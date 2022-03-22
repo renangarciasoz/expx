@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "api": ["src/api"],
+      "api/*": ["src/api/*"],
+      "configs": ["src/configs"],
+      "configs/*": ["src/configs/*"],
+      "contexts": ["src/contexts"],
+      "contexts/*": ["src/contexts/*"],
+      "enums": ["src/enums"],
+      "enums/*": ["src/enums/*"],
+      "lotties": ["src/lotties"],
+      "lotties/*": ["src/lotties/*"],
+      "types": ["src/types"],
+      "types/*": ["src/types/*"],
+      "utils": ["src/utils"],
+      "utils/*": ["src/utils/*"]
+    }
+  }
+}

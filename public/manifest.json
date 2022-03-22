@@ -1,0 +1,11 @@
+{
+  "name": "ExPx",
+  "short_name": "ExPx",
+  "description": "Your way to invest at Blockchain easily",
+  "theme_color": "#00000",
+  "background_color": "#00000",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/"
+}

@@ -9,13 +9,27 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/cache": "^11.7.1",
+    "@emotion/react": "^11.8.2",
+    "@emotion/server": "^11.4.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.5.2",
+    "@mui/system": "^5.5.2",
+    "axios": "^0.26.1",
     "next": "12.1.0",
+    "next-i18next": "^10.5.0",
+    "next-pwa": "^5.4.6",
+    "nookies": "^2.5.2",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-hook-form": "^7.28.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@types/cookie": "^0.4.1",
     "@types/node": "17.0.22",
     "@types/react": "17.0.41",
+    "@types/uuid": "^8.3.4",
     "eslint": "8.11.0",
     "eslint-config-next": "12.1.0",
     "typescript": "4.6.2"
