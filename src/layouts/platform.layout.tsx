@@ -51,7 +51,7 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <AppBar
-        position="absolute"
+        position="fixed"
         sx={{
           top: toolbarIsAtTopPosition ? 0 : "unset",
           bottom: toolbarIsAtTopPosition ? "unset" : 20,
@@ -179,7 +179,7 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
       <Container
         component={"main"}
         sx={{
-          minHeight: "calc(100vh - 60px)",
+          minHeight: "100vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
