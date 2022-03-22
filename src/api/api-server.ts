@@ -6,7 +6,7 @@ export const getAPIClient = (ctx?: any) => {
   const { [TOKEN_NAME]: token } = parseCookies(ctx);
 
   const api = axios.create({
-    baseURL: "http://localhost:3333",
+    baseURL: "http://localhost:3333", // only mock
   });
 
   if (token) {

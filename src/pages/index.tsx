@@ -1,34 +1,26 @@
-import { Container, Typography } from "@mui/material";
-import { GetServerSideProps, NextPage } from "next";
-import { LOGIN } from "src/constants/urls.constants";
+import { Typography } from "@mui/material";
+import { NextPage } from "next";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { COMMON } from "src/constants/translations.constants";
+import { PlatformLayout } from "src/layouts/platform.layout";
 
 const HomePage: NextPage = () => {
+  const { t } = useTranslation(COMMON);
+
   return (
-    <Container>
-      <Typography variant="h1">Coming soon</Typography>
-    </Container>
+    <PlatformLayout>
+      <Typography variant="h1">{t("home.comingSoon")}</Typography>
+    </PlatformLayout>
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const UA = ctx.req.headers["user-agent"];
-  const isMobile = Boolean(
-    UA?.match(
-      /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
-    )
-  );
-
-  if (isMobile) {
-    return {
-      redirect: {
-        permanent: false,
-        destination: LOGIN,
-      },
-    };
-  }
-
+export const getServerSideProps = async ({ locale }: { locale: string }) => {
   return {
-    props: {},
+    props: {
+      locale,
+      ...(await serverSideTranslations(locale, [COMMON])),
+    },
   };
 };
 

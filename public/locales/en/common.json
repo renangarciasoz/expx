@@ -1,1 +1,15 @@
-{}
+{
+  "auth": {
+    "loginToolbarBtn": "Login",
+    "loginTitle": "Login",
+    "logoutBtn": "Logout",
+    "loginBtn": "Sig in"
+  },
+  "home": {
+    "comingSoon": "Coming soon"
+  },
+  "dashboard": {
+    "pageTitle": "Dashboard",
+    "welcome": "Welcome"
+  }
+}
