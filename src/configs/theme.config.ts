@@ -7,11 +7,6 @@ const globalTheme = {
     },
   },
   components: {
-    MuiButtonBase: {
-      defaultProps: {
-        disableRipple: true,
-      },
-    },
     MuiButton: {
       defaultProps: {
         disableElevation: true,
@@ -19,6 +14,7 @@ const globalTheme = {
       styleOverrides: {
         root: {
           fontWeight: 600,
+          textTransform: "unset" as const,
           borderRadius: "10px",
         },
       },
@@ -33,9 +29,6 @@ const globalTheme = {
   },
   typography: {
     fontFamily: "'Sora', 'sans-serif'",
-    button: {
-      textTransform: "none",
-    },
     h1: {
       fontWeight: 700,
     },
