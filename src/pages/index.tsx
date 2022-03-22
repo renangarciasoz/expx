@@ -10,7 +10,9 @@ const HomePage: NextPage = () => {
 
   return (
     <PlatformLayout>
-      <Typography variant="h1">{t("home.comingSoon")}</Typography>
+      <Typography variant="h1" align="center">
+        {t("home.comingSoon")}
+      </Typography>
     </PlatformLayout>
   );
 };

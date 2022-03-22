@@ -55,6 +55,7 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
         sx={{
           top: toolbarIsAtTopPosition ? 0 : "unset",
           bottom: toolbarIsAtTopPosition ? "unset" : 20,
+          flexDirection: toolbarIsAtTopPosition ? "column" : "column-reverse",
           height: loginOpened ? "100vh" : "auto",
           display: "flex",
           backgroundColor: "grey.900",
@@ -114,7 +115,10 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
             alignItems="center"
             justifyContent="center"
           >
-            <Box mt={-10} width={{ xs: 320, md: 420 }}>
+            <Box
+              mt={toolbarIsAtTopPosition ? -10 : 10}
+              width={{ xs: 320, md: 420 }}
+            >
               <Typography variant="h1" align="center">
                 {t("auth.loginTitle")}
               </Typography>
