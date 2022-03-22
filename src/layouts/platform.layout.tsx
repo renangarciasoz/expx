@@ -58,7 +58,7 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
           flexDirection: toolbarIsAtTopPosition ? "column" : "column-reverse",
           height: loginOpened ? "100vh" : "auto",
           display: "flex",
-          backgroundColor: "grey.900",
+          backgroundColor: "grey.1000",
         }}
         elevation={0}
       >
@@ -127,18 +127,22 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
                 onSubmit={handleSubmit(handleSignIn)}
                 display="flex"
                 flexDirection="column"
-                mt={2}
+                mt={3}
               >
                 <Controller
                   control={control}
                   name="email"
-                  render={({ field }) => (
+                  rules={{
+                    required: true,
+                  }}
+                  render={({ field, fieldState }) => (
                     <TextField
                       sx={{ mb: 1 }}
                       {...field}
                       fullWidth
                       label="E-mail"
                       type="email"
+                      error={!!fieldState.error}
                     />
                   )}
                 />
@@ -146,8 +150,16 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
                 <Controller
                   control={control}
                   name="password"
-                  render={({ field }) => (
-                    <TextField {...field} label="Password" type="password" />
+                  rules={{
+                    required: true,
+                  }}
+                  render={({ field, fieldState }) => (
+                    <TextField
+                      {...field}
+                      label="Password"
+                      type="password"
+                      error={!!fieldState.error}
+                    />
                   )}
                 />
 

@@ -7,6 +7,22 @@ const globalTheme = {
     },
   },
   components: {
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
+    MuiButton: {
+      defaultProps: {
+        disableElevation: true,
+      },
+      styleOverrides: {
+        root: {
+          fontWeight: 600,
+          borderRadius: "10px",
+        },
+      },
+    },
     MuiCssBaseline: {
       styleOverrides: {
         a: {
@@ -17,6 +33,9 @@ const globalTheme = {
   },
   typography: {
     fontFamily: "'Sora', 'sans-serif'",
+    button: {
+      textTransform: "none",
+    },
     h1: {
       fontWeight: 700,
     },
@@ -30,9 +49,26 @@ const globalTheme = {
       fontWeight: 700,
     },
   },
+  palette: {
+    primary: {
+      main: "#1979FF",
+      light: "#579DFF",
+      dark: "#0059D6",
+      contrastText: "#FFFFFF",
+    },
+  },
 };
 
 export const themeLight = responsiveFontSizes(createTheme({ ...globalTheme }));
 export const themeDark = responsiveFontSizes(
-  createTheme({ ...globalTheme, palette: { mode: "dark" } })
+  createTheme({
+    ...globalTheme,
+    palette: {
+      ...globalTheme.palette,
+      mode: "dark",
+      background: {
+        default: "#000000",
+      },
+    },
+  })
 );
