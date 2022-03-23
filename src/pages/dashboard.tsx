@@ -29,8 +29,10 @@ const formatValue = (value: number, minimumFractionDigits = 2) =>
     minimumFractionDigits,
   }).format(value);
 
-const formatBillionValue = (value: string) =>
-  `${(formatValue(parseFloat(value) / ONE_BILLION), 3)}b`;
+const formatBillionValue = (value: string) => {
+  const floatValue = parseFloat(value);
+  return `${formatValue(floatValue / ONE_BILLION, 3)}b`;
+};
 
 const DashboardPage = ({ graphData }: { graphData: Graph }) => {
   const { t } = useTranslation(COMMON);
