@@ -1,3 +1,4 @@
+import mockLogin from "@fixtures/login.json";
 import userData from "@fixtures/user.json";
 import { v4 } from "uuid";
 
@@ -12,9 +13,9 @@ export type SignInRequestData = {
 };
 
 export async function signInRequest({ email, password }: SignInRequestData) {
-  //   if (email === mockLogin.username && password === mockLogin.password) {
-  return mockUserData;
-  //   }
+  if (email === mockLogin.username && password === mockLogin.password) {
+    return mockUserData;
+  }
 
   throw new Error("");
 }
