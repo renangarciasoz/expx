@@ -184,7 +184,7 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
       <Container
         component={"main"}
         sx={{
-          pt: 10,
+          py: 10,
           minHeight: "100vh",
           display: "flex",
           alignItems: "center",
