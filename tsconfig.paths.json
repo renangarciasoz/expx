@@ -2,6 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@fixtures": ["src/@fixtures"],
+      "@fixtures/*": ["src/@fixtures/*"],
+      "@types": ["src/@types"],
+      "@types/*": ["src/@types/*"],
       "api": ["src/api"],
       "api/*": ["src/api/*"],
       "configs": ["src/configs"],

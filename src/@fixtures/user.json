@@ -1,0 +1,12 @@
+{
+  "username": "test user",
+  "name": "Test User",
+  "email": "user@expx.fi",
+  "contracts": [
+    {
+      "id": "0o301",
+      "symbol": "eth_lido",
+      "holding": 325.1
+    }
+  ]
+}

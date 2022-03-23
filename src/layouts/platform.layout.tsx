@@ -24,7 +24,7 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
 
   // Hooks
   const { t } = useTranslation(COMMON);
-  const { signIn, isAuthenticated, signOut } = useContext(AuthContext);
+  const { signIn, isAuthenticated, signOut, user } = useContext(AuthContext);
   const { handleSubmit, control } = useForm<SignInRequestData>({
     defaultValues: {
       email: "",
@@ -101,9 +101,14 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
             )}
 
             {shouldShowLogoutBtn && (
-              <Button disableElevation variant="contained" onClick={signOut}>
-                {t("auth.logoutBtn")}
-              </Button>
+              <Box display="flex" alignItems="center">
+                <Typography sx={{ mr: 2 }} variant="subtitle2">
+                  {user?.username}
+                </Typography>
+                <Button disableElevation variant="contained" onClick={signOut}>
+                  {t("auth.logoutBtn")}
+                </Button>
+              </Box>
             )}
           </Box>
         </Toolbar>
@@ -179,6 +184,7 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
       <Container
         component={"main"}
         sx={{
+          pt: 10,
           minHeight: "100vh",
           display: "flex",
           alignItems: "center",
