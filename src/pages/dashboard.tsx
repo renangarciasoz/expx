@@ -1,5 +1,5 @@
 import { Box, Grid, Paper, Typography } from "@mui/material";
-import { Graph } from "@types/graph";
+import { Graph } from "@types";
 import { getGraphByName } from "api/graph.api";
 import { format } from "date-fns";
 import { GetServerSideProps } from "next";

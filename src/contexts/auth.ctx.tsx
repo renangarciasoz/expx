@@ -1,8 +1,8 @@
+import { User } from "@types";
 import { api } from "api/api-client";
 import { useRouter } from "next/router";
 import { destroyCookie, parseCookies, setCookie } from "nookies";
 import React, { createContext, useEffect, useState } from "react";
-import { User } from "src/@types/user";
 import {
   recoverUserInformation,
   signInRequest,
