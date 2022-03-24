@@ -118,28 +118,36 @@ const DashboardPage = ({ graphData }: { graphData: Graph }) => {
                 <Typography variant="h3" sx={{ mb: 2 }}>
                   {t("dashboard.chain")} {chain}
                 </Typography>
-                <Box mr={1}>
-                  <Button variant="contained" size="small" sx={{ mr: 1 }}>
-                    {t("dashboard.all")}
-                  </Button>
-                  <Button variant="outlined" size="small" disabled>
-                    {t("dashboard.lastYear")}
-                  </Button>
-                  <Button
-                    variant="contained"
-                    size="small"
-                    sx={{ mr: 1, ml: isMobile ? 0 : 3, mt: isMobile ? 1 : 0 }}
-                  >
-                    USD
-                  </Button>
-                  <Button
-                    variant="outlined"
-                    size="small"
-                    disabled
-                    sx={{ mt: isMobile ? 1 : 0 }}
-                  >
-                    ETH
-                  </Button>
+                <Box
+                  mr={1}
+                  display="flex"
+                  flexDirection={{ xs: "column", sm: "row" }}
+                >
+                  <Box>
+                    <Button variant="contained" size="small" sx={{ mr: 1 }}>
+                      {t("dashboard.all")}
+                    </Button>
+                    <Button variant="outlined" size="small" disabled>
+                      {t("dashboard.lastYear")}
+                    </Button>
+                  </Box>
+                  <Box>
+                    <Button
+                      variant="contained"
+                      size="small"
+                      sx={{ mr: 1, ml: isMobile ? 0 : 3, mt: isMobile ? 1 : 0 }}
+                    >
+                      USD
+                    </Button>
+                    <Button
+                      variant="outlined"
+                      size="small"
+                      disabled
+                      sx={{ mt: isMobile ? 1 : 0 }}
+                    >
+                      ETH
+                    </Button>
+                  </Box>
                 </Box>
               </Box>
               <ResponsiveContainer width="100%" height={isMobile ? 250 : 450}>
