@@ -1,4 +1,12 @@
-import { Box, Grid, Paper, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Grid,
+  Paper,
+  Theme,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import { Graph } from "@types";
 import { getGraphByName } from "api/graph.api";
 import { format } from "date-fns";
@@ -29,13 +37,16 @@ const formatValue = (value: number, minimumFractionDigits = 2) =>
     minimumFractionDigits,
   }).format(value);
 
-const formatBillionValue = (value: string) => {
+const formatBillionValue = (value: string, minimumFractionDigits = 3) => {
   const floatValue = parseFloat(value);
-  return `${formatValue(floatValue / ONE_BILLION, 3)}b`;
+  return `${formatValue(floatValue / ONE_BILLION, minimumFractionDigits)}b`;
 };
 
 const DashboardPage = ({ graphData }: { graphData: Graph }) => {
   const { t } = useTranslation(COMMON);
+  const isMobile = useMediaQuery((theme: Theme) =>
+    theme.breakpoints.down("sm")
+  );
   const { protocol, tvl, name, chain, apy, reward } = graphData;
 
   const data = graphData.series.map(({ date, tvl, apy }) => ({
@@ -55,64 +66,134 @@ const DashboardPage = ({ graphData }: { graphData: Graph }) => {
 
       <Box display="flex" flexDirection="column" alignItems="center">
         <Grid container sx={{ width: "90vw", py: 2 }}>
-          <Grid item xs={12}>
-            <Paper
-              elevation={0}
+          <Grid item xs={12} sx={{ my: 4, p: 1 }}>
+            <Box display="flex" alignItems="center">
+              <Box
+                height={80}
+                width={80}
+                minWidth={80}
+                borderRadius={80}
+                mr={2}
+                bgcolor="#CCC"
+              />
+              <Typography variant="h1" align="left">
+                {protocol} $LDO
+              </Typography>
+            </Box>
+          </Grid>
+        </Grid>
+        <Grid container spacing={2} sx={{ width: "90vw" }}>
+          <Grid item xs={12} md={3}>
+            <Box
               sx={{
-                m: 3,
-                p: 2,
+                width: "100%",
                 borderSize: 1,
+                borderRadius: 3,
+                borderStyle: "solid",
+                borderColor: "text.disabled",
+                p: 3,
+              }}
+            >
+              <Typography variant="h6">Total Value Locked</Typography>
+              <Typography>
+                {chain} {formatBillionValue(tvl.toString(), 3)}
+              </Typography>
+              <Typography sx={{ mt: 2 }} variant="h6">
+                APY
+              </Typography>
+              <Typography>
+                {apy} ${name}
+              </Typography>
+
+              <Typography variant="h6" color="success.main" sx={{ mt: 2 }}>
+                Reward {formatValue(reward)}
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={9}>
+            <Box
+              sx={{
+                width: "100%",
+                height: "100%",
+                borderSize: 1,
+                borderRadius: 3,
                 borderStyle: "solid",
                 borderColor: "text.disabled",
               }}
             >
-              <Typography variant="h2" align="left">
-                {protocol}
-              </Typography>
-              <Typography variant="h4" align="left" sx={{ mt: 2 }}>
-                Chain {chain}
-              </Typography>
-              <Typography>
-                APY {apy} ${name}
-              </Typography>
-              <Typography>TVL {formatBillionValue(tvl.toString())}</Typography>
-
-              <Typography color="success.main" sx={{ mt: 2 }}>
-                Reward {formatValue(reward)}
-              </Typography>
-            </Paper>
-          </Grid>
-          <Grid item xs={12}>
-            <ResponsiveContainer width="100%" height={400}>
-              <AreaChart
-                data={data}
-                margin={{ top: 30, bottom: 30, left: 30, right: 30 }}
-              >
-                <defs>
-                  <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#8884d8" stopOpacity="0.4" />
-                    <stop offset="75%" stopColor="#8884d8" stopOpacity="0.05" />
-                  </linearGradient>
-                </defs>
-                <Tooltip content={<CustomTooltip />} />
-                <Area dataKey="tvl" stroke="#8884d8" fill="url(#color)" />
-                <YAxis
-                  orientation="right"
-                  axisLine={false}
-                  tickLine={false}
-                  tickCount={8}
-                  tickFormatter={(value) => formatBillionValue(value)}
-                />
-                <XAxis
-                  dataKey="date"
-                  axisLine={false}
-                  tickLine={false}
-                  dy={20}
-                  tickFormatter={(date) => format(new Date(date), "MMM, y")}
-                />
-                <CartesianGrid opacity={0.1} vertical={false} />
-              </AreaChart>
-            </ResponsiveContainer>
+              <Box px={3} mt={2}>
+                <Typography variant="h3" sx={{ mb: 2 }}>
+                  Chain {chain}
+                </Typography>
+                <Box mr={1}>
+                  <Button variant="contained" size="small" sx={{ mr: 1 }}>
+                    All
+                  </Button>
+                  <Button variant="outlined" size="small" disabled>
+                    Last Year
+                  </Button>
+                  <Button
+                    variant="contained"
+                    size="small"
+                    sx={{ mr: 1, ml: isMobile ? 0 : 3, mt: isMobile ? 1 : 0 }}
+                  >
+                    USD
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    disabled
+                    sx={{ mt: isMobile ? 1 : 0 }}
+                  >
+                    ETH
+                  </Button>
+                </Box>
+              </Box>
+              <ResponsiveContainer width="100%" height={isMobile ? 250 : 450}>
+                <AreaChart
+                  data={data}
+                  margin={{
+                    bottom: isMobile ? 0 : 30,
+                    right: isMobile ? 0 : 20,
+                  }}
+                >
+                  <defs>
+                    <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#1979FF" stopOpacity="0.4" />
+                      <stop
+                        offset="75%"
+                        stopColor="#1979FF"
+                        stopOpacity="0.05"
+                      />
+                    </linearGradient>
+                  </defs>
+                  <Tooltip content={<CustomTooltip />} />
+                  <Area dataKey="tvl" stroke="#1979FF" fill="url(#color)" />
+                  <YAxis
+                    orientation="right"
+                    axisLine={false}
+                    tickLine={false}
+                    stroke="#FFFFFF"
+                    dx={isMobile ? 0 : 10}
+                    tickFormatter={(value) => formatBillionValue(value, 1)}
+                    style={{ ...(isMobile && { fontSize: "0.8rem" }) }}
+                  />
+                  <XAxis
+                    dataKey="date"
+                    axisLine={false}
+                    tickLine={false}
+                    tickCount={4}
+                    minTickGap={isMobile ? 50 : 150}
+                    dy={isMobile ? 5 : 20}
+                    dx={-30}
+                    stroke="#FFFFFF"
+                    tickFormatter={(date) => format(new Date(date), "MMM y")}
+                    style={{ ...(isMobile && { fontSize: "0.8rem" }) }}
+                  />
+                  <CartesianGrid opacity={0.1} vertical={false} />
+                </AreaChart>
+              </ResponsiveContainer>
+            </Box>
           </Grid>
         </Grid>
       </Box>
@@ -125,11 +206,11 @@ function CustomTooltip({ active, label, payload }: any) {
     return (
       <Paper sx={{ p: 2 }}>
         <Typography>{format(new Date(label), "eeee, d MMM, yyyy")}</Typography>
-        <Typography variant="caption" component="p">
+        <Typography variant="caption" component="p" color="info.main">
           APY {parseFloat(payload[0].payload.apy.value).toFixed(3)} $
           {payload[0].payload.apy.name}
         </Typography>
-        <Typography variant="caption" component="p">
+        <Typography variant="caption" component="p" color="success.main">
           TVL {formatBillionValue(payload[0].value)}
         </Typography>
       </Paper>

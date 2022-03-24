@@ -17,7 +17,7 @@ export async function signInRequest({ email, password }: SignInRequestData) {
     return mockUserData;
   }
 
-  throw new Error("");
+  throw new Error("Invalid credentials");
 }
 
 export async function recoverUserInformation() {

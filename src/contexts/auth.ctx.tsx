@@ -1,5 +1,6 @@
 import { User } from "@types";
 import { api } from "api/api-client";
+import { AxiosError } from "axios";
 import { useRouter } from "next/router";
 import { destroyCookie, parseCookies, setCookie } from "nookies";
 import React, { createContext, useEffect, useState } from "react";
@@ -14,14 +15,17 @@ import { DASHBOARD, HOME } from "src/constants/urls.constants";
 type AuthContextType = {
   isAuthenticated: boolean;
   user: User | null;
+  error: string | null;
   signIn: (data: SignInRequestData) => Promise<void>;
   signOut: () => void;
+  setError: (error: string | null) => void;
 };
 
 export const AuthContext = createContext({} as AuthContextType);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
   const isAuthenticated = !!user;
@@ -37,6 +41,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   async function signIn({ email, password }: SignInRequestData) {
+    setError("");
     try {
       const { token, ...user } = await signInRequest({
         email,
@@ -53,7 +58,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
       router.push(DASHBOARD);
     } catch (e) {
-      window.alert("Unauthorized");
+      setError((e as AxiosError).message);
     }
   }
 
@@ -69,7 +74,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       value={{
         isAuthenticated,
         user,
+        error,
         signIn,
+        setError,
         signOut,
       }}
     >

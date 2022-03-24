@@ -4,7 +4,9 @@ import {
   Box,
   Button,
   Container,
+  Divider,
   IconButton,
+  Link,
   TextField,
   Toolbar,
   Typography,
@@ -12,7 +14,7 @@ import {
 import { SignInRequestData } from "api/auth.api";
 import { AuthContext } from "contexts/auth.ctx";
 import { useTranslation } from "next-i18next";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { POSITION_TOP } from "src/constants/toolbar.constants";
 import { COMMON } from "src/constants/translations.constants";
@@ -24,7 +26,8 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
 
   // Hooks
   const { t } = useTranslation(COMMON);
-  const { signIn, isAuthenticated, signOut, user } = useContext(AuthContext);
+  const { signIn, isAuthenticated, signOut, user, error, setError } =
+    useContext(AuthContext);
   const { handleSubmit, control } = useForm<SignInRequestData>({
     defaultValues: {
       email: "",
@@ -41,12 +44,31 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
   function handleSignIn({ email, password }: SignInRequestData) {
     signIn({ email, password });
   }
+
   function handleOpenLogin() {
+    const body = document?.querySelector("body");
+    body!.style.height = "100vh";
+    body!.style.overflow = "hidden";
+
     setLoginOpened(true);
   }
+
   function handleCloseLogin() {
+    const body = document?.querySelector("body");
+    body!.style.height = "auto";
+    body!.style.overflow = "auto";
     setLoginOpened(false);
+    setError(null);
   }
+
+  useEffect(() => {
+    return () => {
+      setError(null);
+      const body = document?.querySelector("body");
+      body!.style.height = "auto";
+      body!.style.overflow = "auto";
+    };
+  }, [setError]);
 
   return (
     <>
@@ -59,6 +81,7 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
           height: loginOpened ? "100vh" : "auto",
           display: "flex",
           backgroundColor: "grey.1000",
+          p: 1,
         }}
         elevation={0}
       >
@@ -132,6 +155,7 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
                 onSubmit={handleSubmit(handleSignIn)}
                 display="flex"
                 flexDirection="column"
+                alignItems="center"
                 mt={3}
               >
                 <Controller
@@ -142,12 +166,12 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
                   }}
                   render={({ field, fieldState }) => (
                     <TextField
-                      sx={{ mb: 1 }}
+                      sx={{ mb: 1, width: 290 }}
                       {...field}
                       fullWidth
                       label="E-mail"
                       type="email"
-                      error={!!fieldState.error}
+                      error={!!fieldState.error || !!error}
                     />
                   )}
                 />
@@ -161,18 +185,28 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
                   render={({ field, fieldState }) => (
                     <TextField
                       {...field}
+                      sx={{ width: 290 }}
                       label="Password"
                       type="password"
-                      error={!!fieldState.error}
+                      error={!!fieldState.error || !!error}
                     />
                   )}
                 />
+                {error && (
+                  <Typography
+                    variant="caption"
+                    sx={{ mt: 1 }}
+                    color="error.main"
+                  >
+                    {error}
+                  </Typography>
+                )}
 
                 <Button
                   disableElevation
                   type="submit"
                   variant="contained"
-                  sx={{ mt: 2 }}
+                  sx={{ mt: 2, width: 100 }}
                 >
                   {t("auth.loginBtn")}
                 </Button>
@@ -193,6 +227,18 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
       >
         {children}
       </Container>
+      <Divider />
+      <Box component="footer" textAlign="center" p={3}>
+        <Typography variant="caption" component="p">
+          All rights reserved to DxEx
+        </Typography>
+        <Typography variant="caption" component="p">
+          Made and Designed by{" "}
+          <Link href="https://renangarcia.com" color="text.secondary">
+            Renan Garcia
+          </Link>
+        </Typography>
+      </Box>
     </>
   );
 };
