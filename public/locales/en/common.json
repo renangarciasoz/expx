@@ -3,13 +3,26 @@
     "loginToolbarBtn": "Login",
     "loginTitle": "Login",
     "logoutBtn": "Logout",
-    "loginBtn": "Sign in"
+    "loginBtn": "Sign in",
+    "invalidCredentials": "Invalid credentials"
   },
   "home": {
-    "comingSoon": "Coming soon"
+    "comingSoon": "Coming soon",
+    "subtitle": "Your best way to invest in the crypto world."
   },
   "dashboard": {
+    "totalValueLocked": "Total Value Locked",
     "pageTitle": "Dashboard",
-    "welcome": "Welcome"
+    "welcome": "Welcome",
+    "reward": "Reward",
+    "apy": "APY",
+    "chain": "Chain",
+    "lastYear": "Last Year",
+    "all": "All",
+    "tvl": "TVL"
+  },
+  "footer": {
+    "allRightsReserved": "All rights reserved to ExPx",
+    "madeBy": "Made and Designed by"
   }
 }

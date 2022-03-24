@@ -9,7 +9,12 @@ import {
 } from "@mui/material";
 import { Graph } from "@types";
 import { getGraphByName } from "api/graph.api";
+import { TOKEN_NAME } from "constants/auth.constants";
+import { COMPANY_NAME } from "constants/company";
+import { COMMON } from "constants/translations.constants";
+import { HOME } from "constants/urls.constants";
 import { format } from "date-fns";
+import { PlatformLayout } from "layouts/platform.layout";
 import { GetServerSideProps } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -24,23 +29,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { TOKEN_NAME } from "src/constants/auth.constants";
-import { COMMON } from "src/constants/translations.constants";
-import { HOME } from "src/constants/urls.constants";
-import { PlatformLayout } from "src/layouts/platform.layout";
-
-const ONE_BILLION = 1000000000;
-const formatValue = (value: number, minimumFractionDigits = 2) =>
-  Intl.NumberFormat("en", {
-    style: "currency",
-    currency: "USD",
-    minimumFractionDigits,
-  }).format(value);
-
-const formatBillionValue = (value: string, minimumFractionDigits = 3) => {
-  const floatValue = parseFloat(value);
-  return `${formatValue(floatValue / ONE_BILLION, minimumFractionDigits)}b`;
-};
+import { formatBillionValue, formatValue } from "utils/number";
 
 const DashboardPage = ({ graphData }: { graphData: Graph }) => {
   const { t } = useTranslation(COMMON);
@@ -61,7 +50,9 @@ const DashboardPage = ({ graphData }: { graphData: Graph }) => {
   return (
     <PlatformLayout>
       <Head>
-        <title>{t("dashboard.pageTitle")}</title>
+        <title>
+          {t("dashboard.pageTitle")} | {COMPANY_NAME}
+        </title>
       </Head>
 
       <Box display="flex" flexDirection="column" alignItems="center">
@@ -94,19 +85,21 @@ const DashboardPage = ({ graphData }: { graphData: Graph }) => {
                 p: 3,
               }}
             >
-              <Typography variant="h6">Total Value Locked</Typography>
+              <Typography variant="h6">
+                {t("dashboard.totalValueLocked")}
+              </Typography>
               <Typography>
                 {chain} {formatBillionValue(tvl.toString(), 3)}
               </Typography>
               <Typography sx={{ mt: 2 }} variant="h6">
-                APY
+                {t("dashboard.apy")}
               </Typography>
               <Typography>
                 {apy} ${name}
               </Typography>
 
               <Typography variant="h6" color="success.main" sx={{ mt: 2 }}>
-                Reward {formatValue(reward)}
+                {t("dashboard.reward")} {formatValue(reward)}
               </Typography>
             </Box>
           </Grid>
@@ -123,14 +116,14 @@ const DashboardPage = ({ graphData }: { graphData: Graph }) => {
             >
               <Box px={3} mt={2}>
                 <Typography variant="h3" sx={{ mb: 2 }}>
-                  Chain {chain}
+                  {t("dashboard.chain")} {chain}
                 </Typography>
                 <Box mr={1}>
                   <Button variant="contained" size="small" sx={{ mr: 1 }}>
-                    All
+                    {t("dashboard.all")}
                   </Button>
                   <Button variant="outlined" size="small" disabled>
-                    Last Year
+                    {t("dashboard.lastYear")}
                   </Button>
                   <Button
                     variant="contained"
@@ -202,16 +195,19 @@ const DashboardPage = ({ graphData }: { graphData: Graph }) => {
 };
 
 function CustomTooltip({ active, label, payload }: any) {
+  const { t } = useTranslation(COMMON);
+
   if (active && payload?.[0]?.value && payload?.[0]?.payload.apy) {
     return (
       <Paper sx={{ p: 2 }}>
         <Typography>{format(new Date(label), "eeee, d MMM, yyyy")}</Typography>
         <Typography variant="caption" component="p" color="info.main">
-          APY {parseFloat(payload[0].payload.apy.value).toFixed(3)} $
+          {t("dashboard.apy")}{" "}
+          {parseFloat(payload[0].payload.apy.value).toFixed(3)} $
           {payload[0].payload.apy.name}
         </Typography>
         <Typography variant="caption" component="p" color="success.main">
-          TVL {formatBillionValue(payload[0].value)}
+          {t("dashboard.tvl")} {formatBillionValue(payload[0].value)}
         </Typography>
       </Paper>
     );

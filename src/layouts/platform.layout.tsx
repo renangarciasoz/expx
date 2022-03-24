@@ -12,12 +12,14 @@ import {
   Typography,
 } from "@mui/material";
 import { SignInRequestData } from "api/auth.api";
+import { COMPANY_NAME } from "constants/company";
+import { POSITION_TOP } from "constants/toolbar.constants";
+import { COMMON } from "constants/translations.constants";
 import { AuthContext } from "contexts/auth.ctx";
 import { useTranslation } from "next-i18next";
 import React, { useContext, useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { POSITION_TOP } from "src/constants/toolbar.constants";
-import { COMMON } from "src/constants/translations.constants";
+import { blockPageScroll, unblockPageScroll } from "utils/page";
 
 export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
   // States
@@ -46,17 +48,12 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
   }
 
   function handleOpenLogin() {
-    const body = document?.querySelector("body");
-    body!.style.height = "100vh";
-    body!.style.overflow = "hidden";
-
+    blockPageScroll();
     setLoginOpened(true);
   }
 
   function handleCloseLogin() {
-    const body = document?.querySelector("body");
-    body!.style.height = "auto";
-    body!.style.overflow = "auto";
+    unblockPageScroll();
     setLoginOpened(false);
     setError(null);
   }
@@ -64,9 +61,7 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     return () => {
       setError(null);
-      const body = document?.querySelector("body");
-      body!.style.height = "auto";
-      body!.style.overflow = "auto";
+      unblockPageScroll();
     };
   }, [setError]);
 
@@ -87,7 +82,7 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
       >
         <Toolbar sx={{ boxShadow: "none" }}>
           <Typography sx={{ flex: 1 }} variant="h4" component="h1">
-            DxEx
+            {COMPANY_NAME}
           </Typography>
           {!loginOpened && (
             <Box flex={1} display="flex" justifyContent="center">
@@ -198,7 +193,7 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
                     sx={{ mt: 1 }}
                     color="error.main"
                   >
-                    {error}
+                    {t(`auth.${error}`)}
                   </Typography>
                 )}
 
@@ -230,10 +225,10 @@ export const PlatformLayout = ({ children }: { children: React.ReactNode }) => {
       <Divider />
       <Box component="footer" textAlign="center" p={3}>
         <Typography variant="caption" component="p">
-          All rights reserved to DxEx
+          {t("footer.allRightsReserved")}
         </Typography>
         <Typography variant="caption" component="p">
-          Made and Designed by{" "}
+          {t("footer.madeBy")}{" "}
           <Link href="https://renangarcia.com" color="text.secondary">
             Renan Garcia
           </Link>

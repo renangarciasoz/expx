@@ -10,8 +10,16 @@
       "api/*": ["src/api/*"],
       "configs": ["src/configs"],
       "configs/*": ["src/configs/*"],
+      "constants": ["src/constants"],
+      "constants/*": ["src/constants/*"],
       "contexts": ["src/contexts"],
-      "contexts/*": ["src/contexts/*"]
+      "contexts/*": ["src/contexts/*"],
+      "layouts": ["src/layouts"],
+      "layouts/*": ["src/layouts/*"],
+      "lotties": ["src/lotties"],
+      "lotties/*": ["src/lotties/*"],
+      "utils": ["src/utils"],
+      "utils/*": ["src/utils/*"]
     }
   }
 }

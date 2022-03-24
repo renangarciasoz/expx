@@ -1,0 +1,1 @@
+export const ONE_BILLION = 1000000000;

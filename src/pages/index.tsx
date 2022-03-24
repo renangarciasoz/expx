@@ -1,14 +1,16 @@
 import { Box, Grid, Theme, Typography, useMediaQuery } from "@mui/material";
+import { TOKEN_NAME } from "constants/auth.constants";
+import { COMPANY_NAME } from "constants/company";
+import { COMMON } from "constants/translations.constants";
+import { DASHBOARD } from "constants/urls.constants";
+import { PlatformLayout } from "layouts/platform.layout";
+import animationData from "lotties/diamond.json";
 import { NextPage } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Head from "next/head";
 import { parseCookies } from "nookies";
 import Lottie from "react-lottie";
-import { TOKEN_NAME } from "src/constants/auth.constants";
-import { COMMON } from "src/constants/translations.constants";
-import { DASHBOARD } from "src/constants/urls.constants";
-import { PlatformLayout } from "src/layouts/platform.layout";
-import animationData from "src/lotties/diamond.json";
 
 const HomePage: NextPage = () => {
   const { t } = useTranslation(COMMON);
@@ -27,6 +29,9 @@ const HomePage: NextPage = () => {
 
   return (
     <PlatformLayout>
+      <Head>
+        <title>Home page | {COMPANY_NAME}</title>
+      </Head>
       <Grid container sx={{ mt: -12 }}>
         <Grid item xs={12}>
           <Box
@@ -56,7 +61,7 @@ const HomePage: NextPage = () => {
             {t("home.comingSoon")}
           </Typography>
           <Typography align="center" variant="h6" color="text.secondary">
-            Your best way to invest in the crypto world.
+            {t("home.subtitle")}
           </Typography>
         </Grid>
       </Grid>
