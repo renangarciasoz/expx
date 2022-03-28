@@ -21,6 +21,13 @@
 - date-fns (Date)
 - uuid (Generate token)
 
+#### Coming soon
+- Cypress (E2E tests)
+- Storybook (Component docs)
+- Framer motion (User interaction animations)
+- Optimizely (Feature Flags and A/B tests)
+- Rollbar (Errors handler)
+
 
 ## Features
 - JWT Auth only by Next.js
