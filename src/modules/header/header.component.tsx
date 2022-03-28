@@ -8,7 +8,7 @@ import { useHeader } from "modules/header/hooks/use-header";
 
 export const Header = () => {
   const { authFormIsOpened, headerIsAtTopPosition, changeHeaderPosition } =
-    useHeader(); // ?
+    useHeader();
 
   return (
     <AppBar

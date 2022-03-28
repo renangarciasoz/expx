@@ -15,7 +15,7 @@ export const AuthForm = () => {
     },
   });
   const { headerIsAtTopPosition } = useHeader();
-  const { signIn, error } = useAuth(); // ?
+  const { signIn, error } = useAuth();
 
   function handleSignIn({ email, password }: SignInRequestData) {
     signIn({ email, password });

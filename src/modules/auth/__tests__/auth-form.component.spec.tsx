@@ -65,6 +65,11 @@ describe("Auth Form", () => {
 
       describe("with wrong credentials", () => {
         beforeEach(async () => {
+          jest.spyOn(useHeader, "useHeader").mockImplementation(() => ({
+            ...jest.requireActual("modules/header/hooks/use-header"),
+            closeAuthForm: jest.fn(),
+          }));
+
           const { getByTestId } = render(<AuthForm />);
           const emailInput = getByTestId("email-input");
           const passwordInput = getByTestId("password-input");

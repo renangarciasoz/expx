@@ -7,6 +7,7 @@ import {
 import { AxiosError } from "axios";
 import { EXPIRATION_IN_HOURS, TOKEN_NAME } from "constants/auth.constants";
 import { DASHBOARD, HOME } from "constants/urls.constants";
+import { useHeader } from "modules/header/hooks/use-header";
 import { useRouter } from "next/router";
 import { destroyCookie, parseCookies, setCookie } from "nookies";
 import { useEffect } from "react";
@@ -15,6 +16,7 @@ import { useStore } from "store/auth.store";
 export function useAuth() {
   const router = useRouter();
   const { user, error, setUser, setError, removeUser, ...store } = useStore();
+  const { closeAuthForm } = useHeader();
   const isAuthenticated = !!user;
 
   useEffect(() => {
@@ -45,6 +47,7 @@ export function useAuth() {
       setUser(user);
 
       router.push(DASHBOARD);
+      closeAuthForm();
     } catch (e) {
       removeUser();
       delete api.defaults.headers.common["Authorization"];

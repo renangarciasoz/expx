@@ -38,7 +38,7 @@ describe("useAuth hook", () => {
         });
       });
 
-      expect(resultAuthStory.current.error).toBe("");
+      expect(resultAuthStory.current.error).toBe(null);
       expect(result.current.user).toEqual(user);
       expect(result.current.isAuthenticated).toBe(true);
       expect(api.defaults.headers.common["Authorization"]).toBeTruthy();
