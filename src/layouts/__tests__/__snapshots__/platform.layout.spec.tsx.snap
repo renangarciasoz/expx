@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`platform layout renders correctly 1`] = `
+<DocumentFragment>
+  <header
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed mui-fixed css-10d26i6-MuiPaper-root-MuiAppBar-root"
+    data-testid="header"
+  >
+    <div
+      class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-1prgphj-MuiToolbar-root"
+    >
+      <h1
+        class="MuiTypography-root MuiTypography-h4 css-1ht2c9-MuiTypography-root"
+        data-testid="logo"
+      >
+        ExPx
+      </h1>
+      <div
+        class="MuiBox-root css-t508yj"
+      >
+        <button
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+          data-testid="change-header-position-btn"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="ArrowCircleDownIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 4c4.41 0 8 3.59 8 8s-3.59 8-8 8-8-3.59-8-8 3.59-8 8-8m0-2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 10V8h-2v4H8l4 4 4-4h-3z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        class="MuiBox-root css-1j9bsaa"
+      >
+        <button
+          class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root  css-xn5ipf-MuiButtonBase-root-MuiButton-root"
+          data-testid="login-btn"
+          tabindex="0"
+          type="button"
+        >
+          Login
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+  </header>
+  <main
+    class="MuiContainer-root MuiContainer-maxWidthLg css-1i8s1pv-MuiContainer-root"
+  >
+    <div>
+      Hello World
+    </div>
+  </main>
+  <hr
+    class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+  />
+  <footer
+    class="MuiBox-root css-6fytqd"
+  >
+    <p
+      class="MuiTypography-root MuiTypography-caption css-1bhdj8e-MuiTypography-root"
+    >
+      All rights reserved to ExPx
+    </p>
+    <p
+      class="MuiTypography-root MuiTypography-caption css-1bhdj8e-MuiTypography-root"
+    >
+      Made and Designed by 
+      <a
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1tf71kh-MuiTypography-root-MuiLink-root"
+        href="https://renangarcia.com"
+      >
+        Renan Garcia
+      </a>
+    </p>
+  </footer>
+</DocumentFragment>
+`;

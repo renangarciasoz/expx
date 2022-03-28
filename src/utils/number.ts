@@ -8,9 +8,8 @@ export const formatValue = (value: number, minimumFractionDigits = 2) =>
   }).format(value);
 
 export const formatBillionValue = (
-  value: string,
+  value: string | number,
   minimumFractionDigits = 3
 ) => {
-  const floatValue = parseFloat(value);
-  return `${formatValue(floatValue / ONE_BILLION, minimumFractionDigits)}b`;
+  return `${formatValue(Number(value) / ONE_BILLION, minimumFractionDigits)}b`;
 };

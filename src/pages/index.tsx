@@ -1,6 +1,6 @@
 import { Box, Grid, Theme, Typography, useMediaQuery } from "@mui/material";
 import { TOKEN_NAME } from "constants/auth.constants";
-import { COMPANY_NAME } from "constants/company";
+import { COMPANY_NAME } from "constants/company.constants";
 import { COMMON } from "constants/translations.constants";
 import { DASHBOARD } from "constants/urls.constants";
 import { PlatformLayout } from "layouts/platform.layout";
@@ -30,7 +30,9 @@ const HomePage: NextPage = () => {
   return (
     <PlatformLayout>
       <Head>
-        <title>Home page | {COMPANY_NAME}</title>
+        <title>
+          {t("home.pageTitle")} | {COMPANY_NAME}
+        </title>
       </Head>
       <Grid container sx={{ mt: -12 }}>
         <Grid item xs={12}>

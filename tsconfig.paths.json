@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "test-utils": ["src/utils/test-utils"],
       "@fixtures": ["src/@fixtures"],
       "@fixtures/*": ["src/@fixtures/*"],
       "@types": ["src/@types"],
@@ -18,6 +19,10 @@
       "layouts/*": ["src/layouts/*"],
       "lotties": ["src/lotties"],
       "lotties/*": ["src/lotties/*"],
+      "modules": ["src/modules"],
+      "modules/*": ["src/modules/*"],
+      "store": ["src/store"],
+      "store/*": ["src/store/*"],
       "utils": ["src/utils"],
       "utils/*": ["src/utils/*"]
     }

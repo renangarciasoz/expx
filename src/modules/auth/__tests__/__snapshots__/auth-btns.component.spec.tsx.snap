@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth Btns when renders buttons renders correctly 1`] = `
+<div>
+  <div
+    class="MuiBox-root css-1j9bsaa"
+  >
+    <button
+      class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root  css-xn5ipf-MuiButtonBase-root-MuiButton-root"
+      data-testid="login-btn"
+      tabindex="0"
+      type="button"
+    >
+      Login
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+  </div>
+</div>
+`;

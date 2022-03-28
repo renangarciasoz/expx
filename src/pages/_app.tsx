@@ -1,7 +1,6 @@
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
 import createEmotionCache from "configs/create-emotion-cache.config";
-import { AuthProvider } from "contexts/auth.ctx";
 import { ThemeProvider } from "contexts/theme.ctx";
 import { appWithTranslation } from "next-i18next";
 import { AppProps } from "next/app";
@@ -32,9 +31,9 @@ function MyApp(props: MyAppProps) {
       <ThemeProvider>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <AuthProvider>
-          <Component {...pageProps} />
-        </AuthProvider>
+        {/* <AuthProvider> */}
+        <Component {...pageProps} />
+        {/* </AuthProvider> */}
       </ThemeProvider>
     </CacheProvider>
   );
