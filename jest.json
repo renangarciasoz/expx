@@ -1,15 +1,13 @@
 {
   "setupFilesAfterEnv": [
     "@testing-library/jest-dom",
-    "<rootDir>/jest.setup.js"
+    "<rootDir>/jest.setup.js",
+    "jest-canvas-mock"
   ],
-  "testRegex": "(?<!integ\\.)spec\\.ts(x)?$",
-  "preset": "ts-jest",
   "clearMocks": true,
   "coverageReporters": ["html"],
   "collectCoverage": true,
   "collectCoverageFrom": ["src/**/*.{ts,tsx,js,jsx}"],
-  "testPathIgnorePatterns": ["<rootDir>/node_modules/", "<rootDir>/cypress/"],
   "coveragePathIgnorePatterns": [
     "<rootDir>/src/@fixtures/*",
     "<rootDir>/src/@types/*",
@@ -17,17 +15,19 @@
     "<rootDir>/src/pages/_app.tsx",
     "<rootDir>/src/pages/_document.tsx",
     "<rootDir>/src/utils/test-utils.tsx",
-    ".integ.spec.(ts|tsx)",
     "index.(ts|tsx)",
     ".mock.(ts|tsx)",
     ".stories.(ts|tsx)"
   ],
-  "transform": { ".(ts|tsx)$": "ts-jest" },
   "transformIgnorePatterns": ["node_modules"],
-  "globals": {
-    "ts-jest": {
-      "tsConfig": "tsconfig.json"
-    }
+  "testPathIgnorePatterns": [
+    "<rootDir>/node_modules/",
+    "<rootDir>/.next/",
+    "<rootDir>/cypress/"
+  ],
+  "testEnvironment": "jsdom",
+  "transform": {
+    "^.+\\.(js|jsx|ts|tsx)$": ["babel-jest", { "presets": ["next/babel"] }]
   },
   "moduleNameMapper": {
     "^@fixtures/(.*)$": "<rootDir>/src/@fixtures/$1",

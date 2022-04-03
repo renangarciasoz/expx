@@ -12,11 +12,11 @@ import { useStore } from "store/auth.store";
 import { v4 } from "uuid";
 import { useAuth } from "../use-auth";
 
-const pushRouter = jest.fn();
+const mockPushRouter = jest.fn();
 jest.mock("next/router", () => ({
   ...jest.requireActual("next/router"),
   useRouter: () => ({
-    push: pushRouter,
+    push: mockPushRouter,
   }),
 }));
 
@@ -42,7 +42,7 @@ describe("useAuth hook", () => {
       expect(result.current.user).toEqual(user);
       expect(result.current.isAuthenticated).toBe(true);
       expect(api.defaults.headers.common["Authorization"]).toBeTruthy();
-      expect(pushRouter).toHaveBeenCalledWith(DASHBOARD);
+      expect(mockPushRouter).toHaveBeenCalledWith(DASHBOARD);
     });
 
     it("does not sign in user with invalid credentias", async () => {

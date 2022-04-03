@@ -1,0 +1,397 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home page renders correctly 1`] = `
+<DocumentFragment>
+  <header
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation0 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed mui-fixed css-10d26i6-MuiPaper-root-MuiAppBar-root"
+    data-testid="header"
+  >
+    <div
+      class="MuiToolbar-root MuiToolbar-gutters MuiToolbar-regular css-1prgphj-MuiToolbar-root"
+    >
+      <h1
+        class="MuiTypography-root MuiTypography-h4 css-1ht2c9-MuiTypography-root"
+        data-testid="logo"
+      >
+        ExPx
+      </h1>
+      <div
+        class="MuiBox-root css-t508yj"
+      >
+        <button
+          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
+          data-testid="change-header-position-btn"
+          tabindex="0"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="ArrowCircleDownIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 4c4.41 0 8 3.59 8 8s-3.59 8-8 8-8-3.59-8-8 3.59-8 8-8m0-2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 10V8h-2v4H8l4 4 4-4h-3z"
+            />
+          </svg>
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        class="MuiBox-root css-1j9bsaa"
+      >
+        <button
+          class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root  css-xn5ipf-MuiButtonBase-root-MuiButton-root"
+          data-testid="login-btn"
+          tabindex="0"
+          type="button"
+        >
+          Login
+          <span
+            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+  </header>
+  <main
+    class="MuiContainer-root MuiContainer-maxWidthLg css-1i8s1pv-MuiContainer-root"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-container css-1me6whq-MuiGrid-root"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 css-1idn90j-MuiGrid-root"
+      >
+        <div
+          class="MuiBox-root css-8w0bo4"
+        >
+          <div
+            aria-label="animation"
+            role="button"
+            style="width: 320px; height: 320px; overflow: hidden; margin: -100px; outline: none;"
+            tabindex="0"
+            title=""
+          >
+            <svg
+              height="3000"
+              preserveAspectRatio="xMidYMid slice"
+              style="width: 100%; height: 100%; transform: translate3d(0,0,0);"
+              viewBox="0 0 3000 3000"
+              width="3000"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <clippath
+                  id="__lottie_element_2"
+                >
+                  <rect
+                    height="3000"
+                    width="3000"
+                    x="0"
+                    y="0"
+                  />
+                </clippath>
+                <radialgradient
+                  gradientUnits="userSpaceOnUse"
+                  id="__lottie_element_8"
+                  spreadMethod="pad"
+                >
+                  <stop />
+                  <stop />
+                  <stop />
+                  <stop />
+                  <stop />
+                  <stop />
+                  <stop />
+                  <stop />
+                  <stop />
+                  <stop />
+                  <stop />
+                </radialgradient>
+                <lineargradient
+                  gradientUnits="userSpaceOnUse"
+                  id="__lottie_element_12"
+                  spreadMethod="pad"
+                  x1="-322.2590026855469"
+                  x2="381.2409973144531"
+                  y1="-722.4760131835938"
+                  y2="685.2239990234375"
+                >
+                  <stop
+                    offset="2%"
+                    stop-color="rgb(255,255,255)"
+                  />
+                  <stop
+                    offset="51%"
+                    stop-color="rgb(164,164,164)"
+                  />
+                  <stop
+                    offset="100%"
+                    stop-color="rgb(73,73,73)"
+                  />
+                </lineargradient>
+                <lineargradient
+                  gradientUnits="userSpaceOnUse"
+                  id="__lottie_element_16"
+                  spreadMethod="pad"
+                  x1="425.5"
+                  x2="-523"
+                  y1="-394.8760070800781"
+                  y2="177.0240020751953"
+                >
+                  <stop
+                    offset="2%"
+                    stop-color="rgb(255,255,255)"
+                  />
+                  <stop
+                    offset="51%"
+                    stop-color="rgb(164,164,164)"
+                  />
+                  <stop
+                    offset="100%"
+                    stop-color="rgb(73,73,73)"
+                  />
+                </lineargradient>
+                <lineargradient
+                  gradientUnits="userSpaceOnUse"
+                  id="__lottie_element_20"
+                  spreadMethod="pad"
+                  x1="490.81201171875"
+                  x2="-397.1199951171875"
+                  y1="298.6289978027344"
+                  y2="89.86100006103516"
+                >
+                  <stop
+                    offset="0%"
+                    stop-color="rgb(255,255,255)"
+                  />
+                  <stop
+                    offset="50%"
+                    stop-color="rgb(164,164,164)"
+                  />
+                  <stop
+                    offset="100%"
+                    stop-color="rgb(73,73,73)"
+                  />
+                </lineargradient>
+                <lineargradient
+                  gradientUnits="userSpaceOnUse"
+                  id="__lottie_element_24"
+                  spreadMethod="pad"
+                  x1="438.864990234375"
+                  x2="-446.2019958496094"
+                  y1="-85.05400085449219"
+                  y2="39.34700012207031"
+                >
+                  <stop
+                    offset="0%"
+                    stop-color="rgb(255,255,255)"
+                  />
+                  <stop
+                    offset="50%"
+                    stop-color="rgb(164,164,164)"
+                  />
+                  <stop
+                    offset="100%"
+                    stop-color="rgb(73,73,73)"
+                  />
+                </lineargradient>
+                <lineargradient
+                  gradientUnits="userSpaceOnUse"
+                  id="__lottie_element_28"
+                  spreadMethod="pad"
+                  x1="40.5"
+                  x2="118.19999694824219"
+                  y1="-394.9639892578125"
+                  y2="475.135986328125"
+                >
+                  <stop
+                    offset="0%"
+                    stop-color="rgb(255,255,255)"
+                  />
+                  <stop
+                    offset="50%"
+                    stop-color="rgb(164,164,164)"
+                  />
+                  <stop
+                    offset="100%"
+                    stop-color="rgb(73,73,73)"
+                  />
+                </lineargradient>
+                <lineargradient
+                  gradientUnits="userSpaceOnUse"
+                  id="__lottie_element_32"
+                  spreadMethod="pad"
+                  x1="69.73100280761719"
+                  x2="-371.2690124511719"
+                  y1="-332.66400146484375"
+                  y2="480.0360107421875"
+                >
+                  <stop
+                    offset="0%"
+                    stop-color="rgb(255,255,255)"
+                  />
+                  <stop
+                    offset="50%"
+                    stop-color="rgb(164,164,164)"
+                  />
+                  <stop
+                    offset="100%"
+                    stop-color="rgb(73,73,73)"
+                  />
+                </lineargradient>
+              </defs>
+              <g
+                clip-path="url(#__lottie_element_2)"
+              >
+                <g
+                  opacity="1"
+                  style="display: block;"
+                  transform="matrix(1.2300000190734863,0,0,1.2300000190734863,1893.866943359375,1432.801025390625)"
+                >
+                  <g
+                    opacity="1"
+                    transform="matrix(1,0,0,1,0,0)"
+                  >
+                    <path
+                      d=" M-330.4700012207031,-381.6080017089844 C-330.4700012207031,-381.6080017089844 330.489990234375,-0.003000000026077032 330.489990234375,-0.003000000026077032 C330.489990234375,-0.003000000026077032 -330.489990234375,381.6080017089844 -330.489990234375,381.6080017089844 C-330.489990234375,381.6080017089844 -330.4700012207031,-381.6080017089844 -330.4700012207031,-381.6080017089844z"
+                      fill="url(#__lottie_element_32)"
+                      fill-opacity="1"
+                    />
+                  </g>
+                </g>
+                <g
+                  opacity="1"
+                  style="display: block;"
+                  transform="matrix(1.2300000190734863,0,0,1.2300000190734863,1084.875,1432.801025390625)"
+                >
+                  <g
+                    opacity="1"
+                    transform="matrix(1,0,0,1,0,0)"
+                  >
+                    <path
+                      d=" M330.5,-381.6080017089844 C330.5,-381.6080017089844 330.4800109863281,381.6080017089844 330.4800109863281,381.6080017089844 C330.4800109863281,381.6080017089844 -330.5,-0.003000000026077032 -330.5,-0.003000000026077032 C-330.5,-0.003000000026077032 330.5,-381.6080017089844 330.5,-381.6080017089844z"
+                      fill="url(#__lottie_element_28)"
+                      fill-opacity="1"
+                    />
+                  </g>
+                </g>
+                <g
+                  opacity="1"
+                  style="display: block;"
+                  transform="matrix(1.2300000190734863,0,0,1.2300000190734863,1084.863037109375,1774.3310546875)"
+                >
+                  <g
+                    opacity="1"
+                    transform="matrix(1,0,0,1,0,0)"
+                  >
+                    <path
+                      d=" M330.489990234375,280.9209899902344 C330.489990234375,280.9209899902344 -330.489990234375,-280.9209899902344 -330.489990234375,-280.9209899902344 C-330.489990234375,-280.9209899902344 330.489990234375,100.69000244140625 330.489990234375,100.69000244140625 C330.489990234375,100.69000244140625 330.489990234375,280.9209899902344 330.489990234375,280.9209899902344z"
+                      fill="url(#__lottie_element_24)"
+                      fill-opacity="1"
+                    />
+                  </g>
+                </g>
+                <g
+                  opacity="1"
+                  style="display: block;"
+                  transform="matrix(1.2300000190734863,0,0,1.2300000190734863,1893.866943359375,1774.3310546875)"
+                >
+                  <g
+                    opacity="1"
+                    transform="matrix(1,0,0,1,0,0)"
+                  >
+                    <path
+                      d=" M330.489990234375,-280.9209899902344 C330.489990234375,-280.9209899902344 -330.489990234375,280.9209899902344 -330.489990234375,280.9209899902344 C-330.489990234375,280.9209899902344 -330.489990234375,100.69000244140625 -330.489990234375,100.69000244140625 C-330.489990234375,100.69000244140625 330.489990234375,-280.9209899902344 330.489990234375,-280.9209899902344z"
+                      fill="url(#__lottie_element_20)"
+                      fill-opacity="1"
+                    />
+                  </g>
+                </g>
+                <g
+                  opacity="1"
+                  style="display: block;"
+                  transform="matrix(1.2300000190734863,0,0,1.2300000190734863,1084.876220703125,1318.310546875)"
+                >
+                  <g
+                    opacity="1"
+                    transform="matrix(1,0,0,1,0,0)"
+                  >
+                    <path
+                      d=" M330.5,471.7239990234375 C330.5,471.7239990234375 330.4800109863281,-471.7239990234375 330.4800109863281,-471.7239990234375 M330.4599914550781,471.7239990234375 C330.4599914550781,471.7239990234375 330.4800109863281,-471.7239990234375 330.4800109863281,-471.7239990234375 C330.4800109863281,-471.7239990234375 -330.5,90.11900329589844 -330.5,90.11900329589844 C-330.5,90.11900329589844 330.4599914550781,471.7239990234375 330.4599914550781,471.7239990234375z"
+                      fill="url(#__lottie_element_16)"
+                      fill-opacity="1"
+                    />
+                  </g>
+                </g>
+                <g
+                  opacity="1"
+                  style="display: block;"
+                  transform="matrix(1.2300000190734863,0,0,1.2300000190734863,1893.8546142578125,1318.311767578125)"
+                >
+                  <g
+                    opacity="1"
+                    transform="matrix(1,0,0,1,0,0)"
+                  >
+                    <path
+                      d=" M-330.5,471.7239990234375 C-330.5,471.7239990234375 -330.4800109863281,-471.7239990234375 -330.4800109863281,-471.7239990234375 M-330.4599914550781,471.7239990234375 C-330.4599914550781,471.7239990234375 -330.4800109863281,-471.7239990234375 -330.4800109863281,-471.7239990234375 C-330.4800109863281,-471.7239990234375 330.5,90.11900329589844 330.5,90.11900329589844 C330.5,90.11900329589844 -330.4599914550781,471.7239990234375 -330.4599914550781,471.7239990234375z"
+                      fill="url(#__lottie_element_12)"
+                      fill-opacity="1"
+                    />
+                  </g>
+                </g>
+                <g
+                  style="display: none;"
+                >
+                  <g>
+                    <path
+                      fill="url(#__lottie_element_8)"
+                    />
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <h1
+          class="MuiTypography-root MuiTypography-h1 MuiTypography-alignCenter css-pu7oz-MuiTypography-root"
+        >
+          Coming soon
+        </h1>
+        <h6
+          class="MuiTypography-root MuiTypography-h6 MuiTypography-alignCenter css-1i17dnh-MuiTypography-root"
+        >
+          Your best way to invest in the crypto world.
+        </h6>
+      </div>
+    </div>
+  </main>
+  <hr
+    class="MuiDivider-root MuiDivider-fullWidth css-9mgopn-MuiDivider-root"
+  />
+  <footer
+    class="MuiBox-root css-6fytqd"
+  >
+    <p
+      class="MuiTypography-root MuiTypography-caption css-1bhdj8e-MuiTypography-root"
+    >
+      All rights reserved to ExPx
+    </p>
+    <p
+      class="MuiTypography-root MuiTypography-caption css-1bhdj8e-MuiTypography-root"
+    >
+      Made and Designed by 
+      <a
+        class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1tf71kh-MuiTypography-root-MuiLink-root"
+        href="https://renangarcia.com"
+      >
+        Renan Garcia
+      </a>
+    </p>
+  </footer>
+</DocumentFragment>
+`;
